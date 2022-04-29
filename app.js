@@ -14,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    serverAddress: "http://localhost:8008/"
   }
 })

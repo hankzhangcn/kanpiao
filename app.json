@@ -1,22 +1,41 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/now/niw",
+    "pages/now/now"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "看票",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list":[{
-      "pagePath": "pages/index/index",
-      "text": "现场"
-    },{
-      "pagePath": "pages/my/my",
-      "text": "我"
-    }]
+    "color": "#A7A7A7",
+    "selectedColor": "#0058DD",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabBar/home.png",
+        "selectedIconPath": "images/tabBar/home@select.png",
+        "text": "演出"
+      },
+      {
+        "pagePath": "pages/now/now",
+        "iconPath": "images/tabBar/now.png",
+        "selectedIconPath": "images/tabBar/now@select.png",
+        "text": "现场"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tabBar/my.png",
+        "selectedIconPath": "images/tabBar/my@select.png",
+        "text": "我"
+      }
+    ]
   },
   "lazyCodeLoading": "requiredComponents",
   "style": "v2",

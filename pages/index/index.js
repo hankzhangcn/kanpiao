@@ -20,16 +20,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp();
+    // console.log(app.globalData.serverAddress + 'function/banner.php');
     wx.request({
-      url: 'http://localhost:8008/function/banner.php',
+      url: app.globalData.serverAddress + 'function/banner.php',
       data:{
 
       },
       success:(res)=>{
         this.setData({
           banners: res.data
-        }),
-        console.log(res.data)
+        })
+        // , console.log(res.data)
       }
     })
   },
