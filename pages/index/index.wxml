@@ -1,13 +1,27 @@
 <!--pages/index/index.wxml-->
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 <view class="container">
-  <view>搜索框Lorem</view>
-  <text class="bigTitle">{{motto}}</text>
-  <swiper class='swiper-container'  indicator-dots="{{indicatorDots}}" indicator-active-color='#fff'
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-    <block wx:for="{{banners}}" wx:key="id">
-      <swiper-item class='swiper-item'>
-        <image  class='swiper-img' src="{{item.img}}"  mode='scaleToFill' />
-      </swiper-item>
-    </block>
-  </swiper>
+  <view class="area">
+    <mp-searchbar placeholder="搜索「演出」「话剧」" 	confirm-type="search" />
+  </view>
+  <view class="area">
+   <text class="bigTitle">{{motto}}</text>
+  </view>
+  <view class="area">
+    <swiper class='swiper-container'  indicator-dots="{{indicatorDots}}" indicator-active-color='#fff'
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{banners}}" wx:key="id">
+        <swiper-item class='swiper-item'>
+          <image  class='swiper-img' src="{{item.img}}"  mode='scaleToFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="area">
+    
+  </view>
 </view>

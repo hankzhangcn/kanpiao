@@ -11,7 +11,7 @@
     </block> -->
     <block wx:if="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" type="primary"> 一键登录 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 一键登录 </button>
       <view wx:else> 请使用1.4.4及以上版本基础库 </view>
     </block>
     <block wx:else>
@@ -19,11 +19,10 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-
   <view class="menu">
     <view class="menu-list">
       <image class="orders-img menu-ico" src="cloud://cloud1-7gjshtbrd4318273.636c-cloud1-7gjshtbrd4318273-1308996734/images/订单.png"></image>
-      <view class="menu-text">我的订单</view>
+      <view class="menu-text" bindtap="myOrders">我的订单</view>
       <view class="menu-go">></view>
     </view>
     <view class="menu-list">
@@ -56,10 +55,10 @@
       <view class="menu-go">></view>
       <view class="menu-text">退出登录</view>
     </view>
-    <view class="menu-list">
+    <!-- <view class="menu-list">
       <image class="orders-img menu-ico" src="cloud://cloud1-7gjshtbrd4318273.636c-cloud1-7gjshtbrd4318273-1308996734/images/订单.png"></image>
       <view class="menu-text">订单</view>
       <view class="menu-go">></view>
-    </view>
+    </view> -->
   </view>
 </view>

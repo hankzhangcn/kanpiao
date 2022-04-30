@@ -1,4 +1,10 @@
 /* pages/index/index.wxss */
+
+
+
+.area{
+  margin: 20rpx 0;
+}
 .bigTitle{
   /* font-family: PingFang SC; */
   font-size: xx-large;
