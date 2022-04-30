@@ -6,7 +6,13 @@
 
 <view class="container">
   <view class="area">
-    <mp-searchbar placeholder="搜索「演出」「话剧」" 	confirm-type="search" />
+    <van-search
+      value="{{ value }}"
+      placeholder="搜索「演出」「话剧」"
+      shape="squear"
+      background="rgba(0,0,0,0)"
+      clear-trigger="focus"
+    />
   </view>
   <view class="area">
    <text class="bigTitle">{{motto}}</text>

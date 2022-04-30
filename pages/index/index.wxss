@@ -1,7 +1,10 @@
 /* pages/index/index.wxss */
 
 
+page{
+  /* background-image: url("http://wx4.sinaimg.cn/large/007ccotFly1h0rnhyi165j30yi0yi793.jpg"); */
 
+}
 .area{
   margin: 20rpx 0;
 }
