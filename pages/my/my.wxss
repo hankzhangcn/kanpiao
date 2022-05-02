@@ -21,7 +21,7 @@ page{
 
 .container {
   /* height: 2000rpx; */
-  margin-top: 300rpx;
+  margin-top: 800rpx;
   border-radius: 40rpx 40rpx 0 0;
   background-color: white;
   /* backdrop-filter: blur(50rpx); */
@@ -30,6 +30,7 @@ page{
 .userinfo {
   height: 100rpx;
   padding-top: 30rpx;
+  margin-bottom: 80rpx;
 }
 
 .userinfo-avatar{
@@ -49,13 +50,16 @@ page{
 }
 
 .menu{
-  margin-top: 40rpx;
-  margin-left: 40rpx;
+  margin-top: 0rpx;
+  margin: 0 40rpx;
 }
 .menu-list{
   display: flex;
-  margin: 80rpx 0
+  padding: 50rpx 0;
+  line-height: 1.35;
+
 }
+
 .menu-ico{
   width: 48rpx;
   height: 48rpx;
@@ -67,5 +71,36 @@ page{
 }
 .menu-go{
   position: absolute;
-  right: 80rpx;
+  right: 0;
 }
+
+
+button::after{
+  border: none;
+}
+button{
+ position: relative;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ padding-left: 0px;
+ padding-right: 0px;
+ box-sizing: border-box;
+ /* font-size: 18px; */
+ text-align: center;
+ text-decoration: none;
+ /* line-height: 1; */
+ /* line-height: 1.35; */
+ /* border-radius: 5px; */
+ /* -webkit-tap-highlight-color: transparent; */
+ overflow: hidden;
+ color: #000000;
+ background-color: #fff;
+ width: 100%;
+ height: 100%;
+ }
+
+ .pop_text{
+   /* text-align: center; */
+   padding: 100rpx;
+ }

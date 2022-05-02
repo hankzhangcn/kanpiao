@@ -21,11 +21,11 @@ Page({
    */
   onLoad: function (options) {
     var app = getApp();
-    // console.log(app.globalData.serverAddress + 'function/banner.php');
+    // 轮播图数据
+    // console.log(app.globalData.serverAddress + 'function/wx/banner.php');
     wx.request({
-      url: app.globalData.serverAddress + 'function/banner.php',
+      url: app.globalData.serverAddress + 'function/wx/banner.php',
       data:{
-
       },
       success:(res)=>{
         this.setData({
@@ -34,6 +34,8 @@ Page({
         // , console.log(res.data)
       }
     })
+
+
   },
 
   /**
@@ -83,5 +85,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onShareTimeline(){
+    return{
+      title:'看票'
+    }
   }
+
 })

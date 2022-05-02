@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  },
   "navigationBarTitleText":"我的"
+  
 }
