@@ -1,7 +1,7 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
+import Dialog from '/../../miniprogram_npm/@vant/weapp/dialog/dialog';
 
 Page({
   data: {
@@ -15,15 +15,20 @@ Page({
   myOrders: function(event) {
     console.log(event)
   },
-
-  showPopup() {
-    this.setData({ show: true });
+// 控制朋友圈提示显示
+  showPopupMoments() {
+    this.setData({ moments: true });
   },
-  onClose() {
-    this.setData({ show: false });
+  onCloseMoments() {
+    this.setData({ moments: false });
   },
-
-
+// 控制登出提示
+showPopupLogout() {
+  this.setData({ moments: true });
+},
+onCloseLogout() {
+  this.setData({ moments: false });
+},
   // 事件处理函数
   onLoad() {
     var that = this;
@@ -71,6 +76,28 @@ Page({
         })
       }
     })
+  },
+
+  // 登出
+
+  
+  logout(e){
+    Dialog.confirm({
+      title: '退出登录',
+      message: '您确认要退出登录吗？',
+    })
+      .then(() => {
+        wx.setStorage({
+          key: "hasUserInfo",
+          data: false
+        })
+        this.setData({hasUserInfo: false});
+        app.globalData.hasUserInfo = false;
+      })
+      .catch(() => {
+        // on cancel
+      });
+
   },
 
   onShareAppMessage() {

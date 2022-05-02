@@ -22,14 +22,15 @@ page{
 .container {
   /* height: 2000rpx; */
   margin-top: 800rpx;
+  min-height: 300rpx;
   border-radius: 40rpx 40rpx 0 0;
   background-color: white;
   /* backdrop-filter: blur(50rpx); */
 }
 
+
 .userinfo {
-  height: 100rpx;
-  padding-top: 30rpx;
+  /* padding-top: 30rpx; */
   margin-bottom: 80rpx;
 }
 
@@ -45,7 +46,7 @@ page{
 .userinfo-nickname{
   position: absolute;
   margin-left: 50rpx;
-  margin-top: -50rpx;
+  /* margin-top: -30rpx; */
   font-size: xx-large;
 }
 

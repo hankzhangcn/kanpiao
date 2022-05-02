@@ -1,14 +1,16 @@
 <!--index.wxml-->
 <view class="container">
   <van-popup
-  show="{{ show }}"
+  show="{{ moments }}"
   closeable
   close-icon-position="top-left"
   round
   position="bottom"
   custom-style="height: 20%;"
-  bind:close="onClose"
+  bind:close="onCloseMoments"
 ><view class="pop_text">由于微信限制，请前往「演出」页面，在右上角『···』处进行分享</view></van-popup>
+<van-dialog id="van-dialog" />
+
   <view class="userinfo">
 <!-- opendata现在已经被禁止，只会返回匿名信息 -->
 <!-- 
@@ -30,7 +32,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="menu">
+  <view wx:if="{{hasUserInfo}}" class="menu">
     <button class="menu-list" open-type="contact">
       <image class="orders-img menu-ico" src="cloud://cloud1-7gjshtbrd4318273.636c-cloud1-7gjshtbrd4318273-1308996734/images/订单.png"></image>
       <view class="menu-text" bindtap="myOrders">我的订单</view>
@@ -46,7 +48,7 @@
       <view class="menu-text">分享给朋友</view>
       <view class="menu-go">></view>
     </button>
-    <button class="menu-list" bindtap="showPopup">
+    <button class="menu-list" bindtap="showPopupMoments">
       <image class="orders-img menu-ico" src="cloud://cloud1-7gjshtbrd4318273.636c-cloud1-7gjshtbrd4318273-1308996734/images/朋友圈.png"></image>
       <view class="menu-text">分享到朋友圈</view>
       <view class="menu-go">></view>
@@ -62,7 +64,7 @@
       <view class="menu-text">小程序设置</view>
       <view class="menu-go">></view>
     </button>
-    <button class="menu-list" open-type="contact">
+    <button class="menu-list" bindtap="logout">
       <image class="orders-img menu-ico" src="cloud://cloud1-7gjshtbrd4318273.636c-cloud1-7gjshtbrd4318273-1308996734/images/退出.png"></image>
       <view class="menu-go">></view>
       <view class="menu-text">退出登录</view>
