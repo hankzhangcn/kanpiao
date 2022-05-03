@@ -14,7 +14,7 @@
 } */
 
 page{
-  background-image: url("http://wx4.sinaimg.cn/large/007ccotFly1h0rnhyi165j30yi0yi793.jpg");
+  background-image: url("https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/bg.6hl1eqj075c0.webp");
   background-size: 100%;
   background-attachment: fixed;
 }
@@ -22,12 +22,16 @@ page{
 .container {
   /* height: 2000rpx; */
   margin-top: 800rpx;
-  min-height: 300rpx;
+  min-height: 600rpx;
   border-radius: 40rpx 40rpx 0 0;
-  background-color: white;
-  /* backdrop-filter: blur(50rpx); */
+  /* background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(100rpx); */
+  background-color: #fff;
 }
-
+.login_button{
+  position: relative;
+  margin-top: -400rpx;
+}
 
 .userinfo {
   /* padding-top: 30rpx; */
@@ -53,6 +57,7 @@ page{
 .menu{
   margin-top: 0rpx;
   margin: 0 40rpx;
+  transition-duration: 300ms;
 }
 .menu-list{
   display: flex;

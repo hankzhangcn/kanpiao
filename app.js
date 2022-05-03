@@ -15,7 +15,7 @@ App({
       var that = this;
       // 校验token是否过期
       wx.request({
-        url: this.globalData.serverAddress + 'function/wx/check_token.php',
+        url: this.globalData.serverAddress + 'function/wx/is_token_expired.php',
         data: {token:wx.getStorageSync('token')},
         header: {
           'content-type': 'application/json' //默认值
