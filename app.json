@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/my/my",
-    "pages/now/niw",
-    "pages/now/now"
+    "pages/now/now",
+    "pages/select_seat/select_seat"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,20 +19,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/tabBar/home.png",
-        "selectedIconPath": "images/tabBar/home@select.png",
+        "iconPath": "image/tabBar/home.png",
+        "selectedIconPath": "image/tabBar/home@select.png",
         "text": "演出"
       },
       {
         "pagePath": "pages/now/now",
-        "iconPath": "images/tabBar/now.png",
-        "selectedIconPath": "images/tabBar/now@select.png",
+        "iconPath": "image/tabBar/now.png",
+        "selectedIconPath": "image/tabBar/now@select.png",
         "text": "现场"
       },
       {
         "pagePath": "pages/my/my",
-        "iconPath": "images/tabBar/my.png",
-        "selectedIconPath": "images/tabBar/my@select.png",
+        "iconPath": "image/tabBar/my.png",
+        "selectedIconPath": "image/tabBar/my@select.png",
         "text": "我"
       }
     ]

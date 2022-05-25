@@ -94,6 +94,7 @@ App({
     code: "",
     hasUserInfo: "",
     userInfo: [],
-    serverAddress: "http://localhost:8008/"
+    serverAddress: "http://192.168.137.1:8008/"
+    // serverAddress: "http://localhost:8008/"
   }
 })

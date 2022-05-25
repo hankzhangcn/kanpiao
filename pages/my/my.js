@@ -56,6 +56,7 @@ onCloseLogout() {
   },
 
   getUserProfile(e) {
+    console.log(e);
     wx.getUserProfile({
       desc: '获取您的头像、昵称', 
       success: (res) => {
@@ -99,7 +100,7 @@ onCloseLogout() {
       });
 
   },
-
+// 分享
   onShareAppMessage() {
     const promise = new Promise(resolve => {
       setTimeout(() => {
@@ -114,6 +115,13 @@ onCloseLogout() {
       promise 
     }
   },
+
+  // 测试页面
+  test_page(){
+    wx.navigateTo({
+      url: '/pages/select_seat/select_seat'
+    })
+  }
 
 
 })

@@ -14,7 +14,7 @@
 } */
 
 page{
-  background-image: url("https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/bg.6hl1eqj075c0.webp");
+  background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%253A%252F%252Fdingyue.ws.126.net%252F2021%252F0924%252F84d7c0e1j00qzx4ww0013c000hs00nqc.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654271768&t=978405d68e80c7bb41c6802c2dd940981");
   background-size: 100%;
   background-attachment: fixed;
 }
@@ -28,6 +28,16 @@ page{
   backdrop-filter: blur(100rpx); */
   background-color: #fff;
 }
+
+.handle{
+  background-color: rgb(177, 177, 177);
+  width: 150rpx;
+  height: 10rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  margin-top: -30rpx;
+  margin-left: 275rpx;
+}
 .login_button{
   position: relative;
   margin-top: -400rpx;
@@ -35,35 +45,34 @@ page{
 
 .userinfo {
   /* padding-top: 30rpx; */
-  margin-bottom: 80rpx;
+  margin-bottom: 40rpx;
 }
 
 .userinfo-avatar{
   border-radius: 50%;
   width: 200rpx;
   height: 200rpx;
-  position: relative;
   margin-top: -120rpx;
   margin-left: 20rpx;
   box-shadow: 4rpx 4rpx 100rpx rgba(0, 0, 0, 0.5);
+  display: block;
 }
 .userinfo-nickname{
-  position: absolute;
-  margin-left: 50rpx;
-  /* margin-top: -30rpx; */
+  margin-left: 40rpx;
+  margin-top: 40rpx;
   font-size: xx-large;
+  display: block;
+
 }
 
 .menu{
   margin-top: 0rpx;
   margin: 0 40rpx;
-  transition-duration: 300ms;
 }
 .menu-list{
   display: flex;
   padding: 50rpx 0;
   line-height: 1.35;
-
 }
 
 .menu-ico{
