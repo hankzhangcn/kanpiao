@@ -60,7 +60,6 @@ onCloseLogout() {
     wx.getUserProfile({
       desc: '获取您的头像、昵称', 
       success: (res) => {
-        console.log(res)
         // 存入用户信息
         app.globalData.userInfo=res.userInfo;
         this.setData({
@@ -74,6 +73,17 @@ onCloseLogout() {
         wx.setStorage({
           key: "userInfo",
           data: res.userInfo
+        })
+        // 存入数据库
+        wx.request({
+          url: app.globalData.serverAddress + 'function/wx/save_user_info.php',
+          // method: 'POST',
+          data:{
+          user_info: res.userInfo,
+          token: wx.getStorageSync('token')},
+          success:(res)=>{
+            console.log(res.data)
+          }
         })
       }
     })
