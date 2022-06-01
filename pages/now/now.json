@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText":"现场/验票"
+  "navigationBarTitleText":"现场/验票",
+  "enablePullDownRefresh": true
 }

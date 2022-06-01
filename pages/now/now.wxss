@@ -1,12 +1,12 @@
 /* pages/now/now.wxss */
 .detail_contain{
   height: 420rpx;
-  border-radius: 40rpx 40rpx 0 0;
+  border-radius: 40rpx;
   z-index: 1;
 }
 .qr_contain{
   height: 650rpx;
-  /* border-radius: 0rpx 0 40rpx 40rpx; */
+  border-radius: 0 0 40rpx 40rpx;
   border-top:  dashed rgb(41, 41, 41);
   /* border-bottom:  dashed rgb(41, 41, 41); */
 
@@ -52,7 +52,7 @@
   width: 500rpx;
   background-color: #0058dd;
   /* box-shadow: 4rpx 4rpx 100rpx rgba(0, 88, 211, 0.5); */
-  margin-top: 130rpx;
+  margin-top: 100rpx;
   margin-left: 75rpx;
   color: #fff;
 }

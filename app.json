@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/my/my",
     "pages/now/now",
-    "pages/select_seat/select_seat"
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -73,6 +73,11 @@
       <view class="menu-go">></view>
       <view class="menu-text">退出登录</view>
     </button>
+    <button class="menu-list" bindtap="about_page">
+      <!-- <image class="menu-ico" src="https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/退出.1ow0sev9248w.webp"></image> -->
+      <view class="menu-go">></view>
+      <view class="menu-text">关于</view>
+    </button>
     <button class="menu-list" bindtap="test_page">
       <!-- <image class="menu-ico" src="https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/退出.1ow0sev9248w.webp"></image> -->
       <view class="menu-go">></view>

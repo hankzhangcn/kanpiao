@@ -125,11 +125,15 @@ onCloseLogout() {
       promise 
     }
   },
-
+  about_page(){
+    wx.navigateTo({
+      url: '/pages/about/about'
+    })
+  },
   // 测试页面
   test_page(){
     wx.navigateTo({
-      url: '/pages/select_seat/select_seat'
+      url: '/pages/home/index'
     })
   }
 

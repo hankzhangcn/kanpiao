@@ -27,7 +27,27 @@
       </block>
     </swiper>
   </view>
-  <view class="area">
-    
+  <view class="area show_list">
+    <block wx:for-items="{{itemsShow}}" wx:key="id">
+            <navigator url='../subPages/movie-detail/movie-detail?movieId={{item.id}}&showst={{item.showst}}'>
+              <view class="flex item swiperH">
+                  <view class="item_left">
+                      <image class="poster" src="{{item.show_poster_vertical}}"/>
+                  </view>
+                  <view class="flex_auto item_middle">
+                      <view><text class="title">{{item.show_name}}</text></view>
+                       <view><text class="left_s">卡司：</text><text class="score">{{item.show_cast}}</text></view>
+                      <view><text class="sub_title">{{item.show_foreign_name}}</text></view>
+                      <view><text class="actor">城市：{{item.show_city}}</text></view>
+                  </view>
+                  <!-- <view class="item_right">
+                      <view><text class="action">购票</text></view>
+                  </view> -->
+              </view>
+            </navigator>
+          </block>
+      <view wx:if="{{itemsShow.length>0 && hasMoreHost && currentTab==0}}">
+        <template is="loadingMore" />
+      </view>
   </view>
 </view>

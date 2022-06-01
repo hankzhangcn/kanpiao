@@ -4,14 +4,14 @@
   <view class="ticket">
   <view class="detail_contain">
     <view class="show_name">{{show_detail[0].show_name}}</view>
-    <image class="show_post" src="{{show_detail[0].show_poster_verical}}"></image>
+    <image class="show_post" src="{{show_detail[0].show_poster_vertical}}"></image>
     <view class="show_place_contain">
-      <image class="location_icon" src="https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/定位.4e0dosx6ccg0.webp"></image>
+      <image class="location_icon" src="https://s1.ax1x.com/2022/05/30/XQvrjg.png"></image>
       <view class="show_place">{{show_detail[0].show_place}}</view>
     </view>
   </view>
   <view class="qr_contain">
-    <view class="seat">C 区 15 排 23 座</view>
+    <view class="seat">该场次的演出将于以下时间开始</view>
     <view class="date">{{session_detail[0].session_time}}</view>
     <image class="qrcode" src="{{newest_session_qrcode}}" style="width: 400rpx; height:400rpx"></image>
   </view>

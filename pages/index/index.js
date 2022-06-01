@@ -1,4 +1,6 @@
 // pages/index/index.js
+const app = getApp();
+const util = require('../../utils/utils.js')
 Page({
 
   /**
@@ -14,20 +16,27 @@ Page({
     duration: 1000, // 滑动动画时长
     circular: true, //是否采用衔接滑动 
     banners: [],
+
+
+    itemsShow: [], //热映
+    pageNumHost: 0,//加载“页号”
+    limit: 100,
+    hasMoreHost: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app = getApp();
+    var that = this
+    that.getMovieList();
     // 轮播图数据
-    // console.log(app.globalData.serverAddress + 'function/wx/banner.php');
     wx.request({
       url: app.globalData.serverAddress + 'function/wx/banner.php',
       data:{
       },
       success:(res)=>{
+        console.log(res.data);
         this.setData({
           banners: res.data
         })
@@ -35,6 +44,37 @@ Page({
     })
 
  
+  },
+  getMovieList: function() {
+    var that = this;
+    var pageNumHost = that.data.pageNumHost;
+    var limit = that.data.limit;
+    //playingList
+    wx.request({
+      url:  app.globalData.serverAddress +'function/wx/get_show_list.php',
+      method: 'GET',
+      data: {
+        pageNum: pageNumHost++,
+        limit: limit
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        const itemsShow = that.data.itemsShow.concat(res.data);
+        that.setData({
+          // hasMoreHost: pageNumHost < res.data.data.tr,
+          itemsShow: itemsShow,
+          pageNumHost: pageNumHost
+        })
+      }
+    })
+  },
+  // 触底
+  onReachBottom: function(){
+    if (this.data.hasMoreHost)
+      this.getMovieList();
   },
 
   /**
