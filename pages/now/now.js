@@ -7,7 +7,9 @@ Page({
   data: {
     newest_session_qrcode:"",
     show_detail:[],
-    session_detail:[]
+    session_detail:[],
+    have_newest_session: false,
+
   },
 
   /**
@@ -17,42 +19,50 @@ Page({
     var app = getApp();
     var that = this;
 
-
+    wx.stopPullDownRefresh()
     // 获取二维码
     wx.request({
       url: app.globalData.serverAddress + 'function/wx/generate_qrcode.php',
       data: {token:wx.getStorageSync('token')},
       success: (res)=>{
         // console.log(res.data);
-        that.setData({
-          newest_session_qrcode: res.data
-        })
+        if(res.data == 0)
+        {
+          that.setData({
+            have_newest_session: false
+          })
+        }
+        // 有直接获取
+        else{
+          that.setData({
+            newest_session_qrcode: res.data,
+            have_newest_session: true            
+          })
+          // 获取演出详情
+          wx.request({
+            url: app.globalData.serverAddress + 'function/wx/get_show_detail.php',
+            data: {token:wx.getStorageSync('token')},
+            success: (res)=>{
+              console.log(res.data);
+              that.setData({
+                show_detail: res.data
+              })
+            }
+          })
+          // 获取场次详情
+          wx.request({
+            url: app.globalData.serverAddress + 'function/wx/get_session_detail.php',
+            data: {token:wx.getStorageSync('token')},
+            success: (res)=>{
+              console.log(res.data);
+              that.setData({
+                session_detail: res.data
+              })
+            }
+          })
+        }
       }
     })
-    // 获取演出详情
-    wx.request({
-      url: app.globalData.serverAddress + 'function/wx/get_show_detail.php',
-      data: {token:wx.getStorageSync('token')},
-      success: (res)=>{
-        console.log(res.data);
-        that.setData({
-          show_detail: res.data
-        })
-      }
-    })
-    // 获取场次详情
-    wx.request({
-      url: app.globalData.serverAddress + 'function/wx/get_session_detail.php',
-      data: {token:wx.getStorageSync('token')},
-      success: (res)=>{
-        console.log(res.data);
-        that.setData({
-          session_detail: res.data
-        })
-      }
-    })
-
-
   },
 
   /**
@@ -87,7 +97,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.onLoad(); //重新加载onLoad()
   },
 
   /**
@@ -102,5 +112,6 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+
 })

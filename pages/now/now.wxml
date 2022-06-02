@@ -3,14 +3,15 @@
 <view class="container">
   <view class="ticket">
   <view class="detail_contain">
-    <view class="show_name">{{show_detail[0].show_name}}</view>
-    <image class="show_post" src="{{show_detail[0].show_poster_vertical}}"></image>
-    <view class="show_place_contain">
+    <view class="show_name"  wx:if="{{have_newest_session}}">{{show_detail[0].show_name}}</view>
+    <image class="show_post"  wx:if="{{have_newest_session}}" src="{{show_detail[0].show_poster_vertical}}"></image>
+    <view class="show_place_contain" wx:if="{{have_newest_session}}">
       <image class="location_icon" src="https://s1.ax1x.com/2022/05/30/XQvrjg.png"></image>
       <view class="show_place">{{show_detail[0].show_place}}</view>
     </view>
+    <view class ="seat" style="color: aliceblue;" wx:if="{{!have_newest_session}}">您最近没有演出,去首页看看吧！</view>
   </view>
-  <view class="qr_contain">
+  <view class="qr_contain" wx:if="{{have_newest_session}}">
     <view class="seat">该场次的演出将于以下时间开始</view>
     <view class="date">{{session_detail[0].session_time}}</view>
     <image class="qrcode" src="{{newest_session_qrcode}}" style="width: 400rpx; height:400rpx"></image>
@@ -18,4 +19,5 @@
   </view>
 
 </view>
+
 

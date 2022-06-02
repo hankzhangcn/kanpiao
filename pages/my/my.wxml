@@ -37,16 +37,21 @@
 
 
   <view wx:if="{{hasUserInfo}}" class="menu">
+    <button wx:if="{{is_checker}}" class="menu-list" bindtap="checker_page">
+      <image class="menu-ico" src="https://s1.ax1x.com/2022/06/02/XYBnJI.png"></image>
+      <view class="menu-go">></view>
+      <view class="menu-text">检票员页面</view>
+    </button>
     <button class="menu-list" open-type="contact">
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQIpuV.png"></image>
       <view class="menu-text" bindtap="myOrders">我的订单</view>
       <view class="menu-go">></view>
     </button>
-    <button class="menu-list" open-type="contact">
+    <!-- <button class="menu-list" open-type="contact">
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQICHU.png"></image>
       <view class="menu-text">账号设置</view>
       <view class="menu-go">></view>
-    </button>
+    </button> -->
     <button class="menu-list" open-type="share" >
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQIFN4.png"></image>
       <view class="menu-text">分享给朋友</view>
@@ -63,18 +68,18 @@
       <view class="menu-text">联系客服</view>
       <view class="menu-go">></view>
     </button>
-    <button class="menu-list" open-type="contact">
+    <!-- <button class="menu-list" open-type="contact">
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQIiEF.png"></image>
       <view class="menu-text">小程序设置</view>
       <view class="menu-go">></view>
-    </button>
+    </button> -->
     <button class="menu-list" bindtap="logout">
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQI9BT.png"></image>
       <view class="menu-go">></view>
       <view class="menu-text">退出登录</view>
     </button>
     <button class="menu-list" bindtap="about_page">
-      <!-- <image class="menu-ico" src="https://cdn.jsdelivr.net/gh/hankzhangcn/CDN@master/img/退出.1ow0sev9248w.webp"></image> -->
+      <image class="menu-ico" src="https://s1.ax1x.com/2022/06/02/XYBuWt.png"></image>
       <view class="menu-go">></view>
       <view class="menu-text">关于</view>
     </button>

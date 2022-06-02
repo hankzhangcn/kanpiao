@@ -1,0 +1,44 @@
+<!--pages/checker_page/checker_page.wxml-->
+
+
+
+<view class="container">
+  <view wx:if="{{is_checker}}">
+    <van-button type="primary" size="large" bindtap="scanCodeEvent" class="bt">开始扫码</van-button>
+    <view class="cross_line"></view>
+
+    <text>扫码结果：{{scan_result}} \n</text>
+    <text>订单 ID：{{order_detail[0].order_id}}\n</text>
+    <text>用户 ID：{{order_detail[0].order_user_id}}\n</text>
+    <text>创建时间：{{order_detail[0].order_create_time}}\n</text>
+    <text>场次 ID：{{order_detail[0].order_session_id}}\n</text>
+    <text>状态：{{order_status}}</text>
+
+    
+    <view class="cross_line"></view>
+
+    <view wx:if="{{order_detail[0].order_status == 0}}">
+      <van-button type="primary" size="large" bindtap="check_in" class="bt">检票入场</van-button>
+      <view class="cross_line"></view>
+      <van-button disabled type="primary" size="large" class="bt">取消入场态</van-button>
+    </view>
+    <view wx:if="{{order_detail[0].order_status == 1}}">
+      <van-button disabled type="primary" size="large"  class="bt">检票入场</van-button>
+      <view class="cross_line"></view>
+      <van-button  type="primary" size="large" bindtap="check_out" class="bt">取消入场态</van-button>
+    </view>
+    <view wx:if="{{order_detail[0].order_status > 1}}">
+      <van-button disabled type="primary" size="large"  class="bt">检票入场</van-button>
+      <view class="cross_line"></view>
+      <van-button disabled type="primary" size="large"  class="bt">取消入场态</van-button>
+    </view>
+
+    
+
+    
+    
+  </view>
+  <view wx:else="">
+    本页面只提供给检票员。
+  </view>
+</view>

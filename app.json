@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/my/my",
     "pages/now/now",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/checker_page/checker_page"
   ],
   "window": {
     "backgroundTextStyle": "light",

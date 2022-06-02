@@ -1,12 +1,15 @@
 // index.js
 // 获取应用实例
-const app = getApp()
+const app = getApp();
+var that = this;
+
 import Dialog from '/../../miniprogram_npm/@vant/weapp/dialog/dialog';
 
 Page({
   data: {
     userInfo: {},
     hasUserInfo: "",
+    is_checker: false ,
     // 是否可以一键获取
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     show: false,
@@ -32,6 +35,17 @@ onCloseLogout() {
   // 事件处理函数
   onLoad() {
     var that = this;
+
+    // 检查储存里是否是管理员
+    wx.getStorage({
+      key: 'is_checker',
+      success (res){
+        that.setData({
+          is_checker: res.data
+        });
+      }
+      
+    })
     // 将登录态存到globaldata以及当前data
     wx.getStorage({
       key: 'hasUserInfo',
@@ -82,9 +96,35 @@ onCloseLogout() {
           user_info: res.userInfo,
           token: wx.getStorageSync('token')},
           success:(res)=>{
-            console.log(res.data)
           }
         })
+        // 登录身份
+        wx.request({
+          url: app.globalData.serverAddress + 'function/wx/is_checker.php',
+          // method: 'POST',
+          data:{
+          user_info: res.userInfo,
+          token: wx.getStorageSync('token')},
+          success:(res)=>{
+            wx.setStorage({
+              key: "is_checker",
+              data: true
+            })
+            Dialog.confirm({
+              title: '检票员模式',
+              message: '您是检票员，要进入管理页面吗？',
+            })
+              .then(() => {
+                wx.navigateTo({
+                  url: '/pages/checker_page/checker_page',
+                })
+              })
+              .catch(() => {
+                // on cancel
+              });
+          }
+        })
+
       }
     })
   },
@@ -100,6 +140,10 @@ onCloseLogout() {
       .then(() => {
         wx.setStorage({
           key: "hasUserInfo",
+          data: false
+        })
+        wx.setStorage({
+          key: "is_checker",
           data: false
         })
         this.setData({hasUserInfo: false});
@@ -124,6 +168,11 @@ onCloseLogout() {
       path: '/page/my',
       promise 
     }
+  },
+  checker_page(){
+    wx.navigateTo({
+      url: '/pages/checker_page/checker_page'
+    })
   },
   about_page(){
     wx.navigateTo({
