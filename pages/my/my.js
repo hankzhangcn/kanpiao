@@ -103,25 +103,33 @@ onCloseLogout() {
           url: app.globalData.serverAddress + 'function/wx/is_checker.php',
           // method: 'POST',
           data:{
-          user_info: res.userInfo,
           token: wx.getStorageSync('token')},
           success:(res)=>{
-            wx.setStorage({
-              key: "is_checker",
-              data: true
-            })
-            Dialog.confirm({
-              title: '检票员模式',
-              message: '您是检票员，要进入管理页面吗？',
-            })
-              .then(() => {
-                wx.navigateTo({
-                  url: '/pages/checker_page/checker_page',
-                })
+            if(res.data == true)
+            {
+              wx.setStorage({
+                key: "is_checker",
+                data: true
               })
-              .catch(() => {
-                // on cancel
-              });
+              Dialog.confirm({
+                title: '检票员模式',
+                message: '您是检票员，要进入管理页面吗？',
+              })
+                .then(() => {
+                  wx.navigateTo({
+                    url: '/pages/checker_page/checker_page',
+                  })
+                })
+                .catch(() => {
+                  // on cancel
+                });
+            }
+            else{
+              wx.setStorage({
+                key: "is_checker",
+                data: false
+              })
+            }
           }
         })
 

@@ -1,5 +1,6 @@
 <!--pages/checker_page/checker_page.wxml-->
 
+<van-dialog id="van-dialog" />
 
 
 <view class="container">

@@ -21,14 +21,42 @@ Page({
   onLoad(options) {
     
     var that = this;
-    wx.getStorage({
-      key: 'is_checker',
-      success (res){
-        that.setData({
-          is_checker: res.data
-        });
+    
+
+    // 再次验证管理员权限
+    wx.request({
+      url: app.globalData.serverAddress + 'function/wx/is_checker.php',
+      // method: 'POST',
+      data:{
+      token: wx.getStorageSync('token')},
+      success:(res)=>{
+        if(res.data == true)
+        {
+          wx.setStorage({
+            key: "is_checker",
+            data: true
+          })
+          that.setData({
+            is_checker: true
+          });
+        }
+        else{
+          wx.setStorage({
+            key: "is_checker",
+            data: false
+          })
+          that.setData({
+            is_checker: false
+          });
+        }
       }
     })
+
+
+
+
+
+    
   },
 
   /**
