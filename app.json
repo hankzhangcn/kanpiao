@@ -4,7 +4,12 @@
     "pages/my/my",
     "pages/now/now",
     "pages/about/about",
-    "pages/checker_page/checker_page"
+    "pages/checker_page/checker_page",
+    "pages/show_detail/show_detail",
+    "pages/orders/orders",
+    "pages/order_detail/order_detail",
+    "pages/buy_ok/buy_ok",
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "light",

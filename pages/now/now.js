@@ -40,7 +40,7 @@ Page({
           })
           // 获取演出详情
           wx.request({
-            url: app.globalData.serverAddress + 'function/wx/get_show_detail.php',
+            url: app.globalData.serverAddress + 'function/wx/get_first_show_detail.php',
             data: {token:wx.getStorageSync('token')},
             success: (res)=>{
               console.log(res.data);
@@ -51,7 +51,7 @@ Page({
           })
           // 获取场次详情
           wx.request({
-            url: app.globalData.serverAddress + 'function/wx/get_session_detail.php',
+            url: app.globalData.serverAddress + 'function/wx/get_first_session_detail.php',
             data: {token:wx.getStorageSync('token')},
             success: (res)=>{
               console.log(res.data);

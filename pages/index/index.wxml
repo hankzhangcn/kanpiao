@@ -32,10 +32,12 @@
                       <image class="poster" src="{{item.show_poster_vertical}}"/>
                   </view>
                   <view class="flex_auto item_middle">
+                    <navigator url="../show_detail/show_detail?show_id={{item.show_id}}">
                       <view><text class="title">{{item.show_name}}</text></view>
-                       <view><text class="left_s">卡司：</text><text class="score">{{item.show_cast}}</text></view>
+                      <view><text class="left_s">卡司：</text><text class="score">{{item.show_cast}}</text></view>
                       <view><text class="sub_title">{{item.show_foreign_name}}</text></view>
                       <view><text class="actor">城市：{{item.show_city}}</text></view>
+                    </navigator>
                   </view>
                   <!-- <view class="item_right">
                       <view><text class="action">购票</text></view>
