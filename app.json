@@ -9,7 +9,8 @@
     "pages/orders/orders",
     "pages/order_detail/order_detail",
     "pages/buy/buy",
-    "pages/select_session/select_session"
+    "pages/select_session/select_session",
+    "pages/buy_ok/buy_ok"
   ],
   "window": {
     "backgroundTextStyle": "light",

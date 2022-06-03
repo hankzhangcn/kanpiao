@@ -1,0 +1,15 @@
+<!--pages/buy_ok/buy_ok.wxml-->
+
+<view class="container">
+  <view wx:if="{{1}}" class="success">购买成功~</view>
+<van-row class="btn_box">
+  <van-col span="10">
+    <van-button type="default" bindtap="index_page">回到首页</van-button>
+  </van-col>
+  <van-col span="10">
+    <van-button type="primary" bindtap="order_detail_page">查看订单</van-button>
+  </van-col>
+</van-row>
+ 
+  
+</view>

@@ -10,6 +10,7 @@ Page({
   data: {
     show_id: "",
     session_id: "",
+    buy_num:"1",
     show_detail: [],
     session_detail:[],
     total_price:""
@@ -115,7 +116,9 @@ Page({
   },
   onChange(event) {
     var that = this;
-    // console.log(event.detail);
+    that.setData({
+      buy_num: event.detail
+    })
     wx.request({
       url:  app.globalData.serverAddress +'function/wx/get_total_price.php',
       method: 'GET',
@@ -134,6 +137,26 @@ Page({
       }
     })
   },
+  payment(){
+    var that = this;
+    wx.request({
+      url:  app.globalData.serverAddress +'function/wx/new_order.php',
+      method: 'GET',
+      data: {
+        session_id: that.data.session_id,
+        buy_num: that.data.buy_num,
+        token: wx.getStorageSync('token')
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function (res) {
+        wx.navigateTo({
+          url: '/pages/buy_ok/buy_ok'
+        })
+      }
+    })
+  }
 
   
 })

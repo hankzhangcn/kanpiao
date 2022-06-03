@@ -35,7 +35,27 @@ onCloseLogout() {
   // 事件处理函数
   onLoad() {
     var that = this;
-
+    wx.request({
+      url: app.globalData.serverAddress + 'function/wx/is_checker.php',
+      // method: 'POST',
+      data:{
+      token: wx.getStorageSync('token')},
+      success:(res)=>{
+        if(res.data == true)
+        {
+          wx.setStorage({
+            key: "is_checker",
+            data: true
+          })
+        }
+        else{
+          wx.setStorage({
+            key: "is_checker",
+            data: false
+          })
+        }
+      }
+    })
     // 检查储存里是否是管理员
     wx.getStorage({
       key: 'is_checker',
@@ -195,7 +215,7 @@ onCloseLogout() {
   // 测试页面
   test_page(){
     wx.navigateTo({
-      url: '/pages/home/index'
+      url: '/pages/buy_ok/buy_ok'
     })
   }
 

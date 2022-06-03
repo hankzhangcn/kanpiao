@@ -25,7 +25,10 @@ App({
         })
       }
     })
-
+    // user_id做本地鉴权，由于BUG，只能用这个办法了
+    wx.request({
+      url: 'url',
+    })
     
   },
 

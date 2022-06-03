@@ -1,30 +1,48 @@
 // pages/order_detail/order_detail.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orders_detail:[],
+    order_detail:[],
+    qrcode: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var that = this;
     this.setData({
       order_id:options.order_id
      })
     //  获取相关信息
     wx.request({
-      url: app.globalData.serverAddress +'function/wx/get_user_orders_detai.php',
+      url: app.globalData.serverAddress +'function/wx/get_user_orders_detail.php',
       data:{
-        token:wx.getStorageSync('token')
+        token:wx.getStorageSync('token'),
+        order_id: that.data.order_id
       },
       success:(res)=>{
         console.log(res.data);
         that.setData({
-          orders_detail: res.data
+          order_detail: res.data
+        })
+      }
+    })
+    // 获取二维码
+    wx.request({
+      url: app.globalData.serverAddress +'function/wx/generate_qrcode.php',
+      data:{
+        token:wx.getStorageSync('token'),
+        order_id: that.data.order_id
+      },
+      success:(res)=>{
+        console.log(res.data);
+        that.setData({
+          qrcode: res.data
         })
       }
     })

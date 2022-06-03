@@ -26,7 +26,7 @@ Page({
       data: {token:wx.getStorageSync('token')},
       success: (res)=>{
         // console.log(res.data);
-        if(res.data == 0)
+        if(res.data == "0https://api.nbhao.org/v1/qrcode/make?text=")
         {
           that.setData({
             have_newest_session: false
