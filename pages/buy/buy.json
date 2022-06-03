@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index"
+  }
 }

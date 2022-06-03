@@ -1,7 +1,5 @@
-// pages/buy/buy.js
+// pages/select_session/select_session.js// pages/buy/buy.js
 var app = getApp();
-var that = this;
-
 Page({
 
   /**
@@ -9,14 +7,9 @@ Page({
    */
   data: {
     show_id: "",
-    session_id: "",
     show_detail: [],
-    session_detail:[],
-    total_price:""
+    session_detail:[]
   },
-
-
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -25,10 +18,9 @@ Page({
     var that =  this;
     // 接受GET参数
     this.setData({
-      show_id:options.show_id,           //articleID问pageB页面变量
-      session_id:options.session_id           //articleID问pageB页面变量
+      show_id:options.show_id           //articleID问pageB页面变量
      })
-    //  获取演出信息
+    //  获取演出详情
      wx.request({
       url:  app.globalData.serverAddress +'function/wx/get_show_detail.php',
       method: 'GET',
@@ -45,21 +37,20 @@ Page({
         })
       }
     })
-    // 获取场次信息
+    // 获取场次列表
     wx.request({
-      url:  app.globalData.serverAddress +'function/wx/get_session_detail.php',
+      url:  app.globalData.serverAddress +'function/wx/get_session_list.php',
       method: 'GET',
       data: {
-        session_id: that.data.session_id
+        show_id: that.data.show_id
       },
       header: {
         'Accept': 'application/json'
       },
       success: function (res) {
-        console.log(res.data);
+        // console.log(res.data);
         that.setData({
-          session_detail:res.data,
-          total_price:res.data[0].session_price
+          session_detail:res.data
         })
       }
     })
@@ -112,28 +103,5 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-  onChange(event) {
-    var that = this;
-    // console.log(event.detail);
-    wx.request({
-      url:  app.globalData.serverAddress +'function/wx/get_total_price.php',
-      method: 'GET',
-      data: {
-        session_id: that.data.session_id,
-        buy_num: event.detail
-      },
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-        // console.log(res.data);
-        that.setData({
-          total_price:res.data
-        })
-      }
-    })
-  },
-
-  
+  }
 })

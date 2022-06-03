@@ -26,5 +26,5 @@
         </view>
     </view>
 </view>
-  <navigator wx:if="{{showst!=1}}" hover-class='none' url='/pages/buy/buy?show_id={{show_id}}' class='purchase'>购票</navigator>
+  <navigator wx:if="{{showst!=1}}" hover-class='none' url='/pages/select_session/select_session?show_id={{show_id}}' class='purchase'>购票</navigator>
 </view>

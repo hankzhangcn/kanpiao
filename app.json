@@ -8,8 +8,8 @@
     "pages/show_detail/show_detail",
     "pages/orders/orders",
     "pages/order_detail/order_detail",
-    "pages/buy_ok/buy_ok",
-    "pages/buy/buy"
+    "pages/buy/buy",
+    "pages/select_session/select_session"
   ],
   "window": {
     "backgroundTextStyle": "light",

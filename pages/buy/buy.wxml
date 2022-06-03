@@ -1,2 +1,46 @@
 <!--pages/buy/buy.wxml-->
-<text>pages/buy/buy.wxml</text>
+<view class='container' wx:if='{{show_id}}'>
+  <view class='section'>
+    <view class='movie-box'>
+      <view class='movie-name'>{{show_detail[0].show_name}}</view>
+      <view class='watch-time'>{{session_detail[0].session_time}}</view>
+      <view>{{show_detail[0].show_city}} {{show_detail[0].show_place}}</view>
+      <van-row>
+        <van-col span="8">选择购票数量</van-col>
+        <van-col span="8" offset="8">
+          <van-stepper value="{{ 1 }}" bind:change="onChange" />
+        </van-col>
+      </van-row>
+
+    </view>
+    <view class='price-box'>
+      <view>单张票价</view>
+      <view class='server'>
+        <text class='price-num'>{{session_detail[0].session_price}}<text class='yuan'>元</text></text>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='section-title'>活动</view>
+    <view class='section-content'>无可用</view>
+  </view>
+  <view class='section'>
+    <view class='section-title'>退改签须知</view>
+    <view class='section-content'>
+      <view>开场时间120分钟前，可免费退款</view>
+      <view>使用「看票卡」或享受票减特惠时，不可改签</view>
+    </view>
+  </view>
+  <!-- <view class='section'>
+    <view class='section-title'>手机号</view>
+    <view class='section-content'>手机号仅用于生成订单，取票码不再以短信发送</view>
+  </view> -->
+  <view class='final_section'>
+  </view>
+  <view class='footer'>
+    <view class='payment'>还需支付：
+      <text class='price-num'>{{total_price}}<text class='yuan'>元</text></text>
+    </view>
+    <view class='payment-btn' bindtap='payment'>确认支付</view>
+  </view>
+</view>
