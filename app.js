@@ -2,24 +2,7 @@
 var app = getApp();
 App({
   onLaunch() {
-    // // 展示本地存储能力
-    // const logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
-
     // 登录
-    // 如果已经有token
-    if(wx.getStorageSync('token'))
-    {
-      console.log("have token");
-    }
-    // 没有token
-    else
-    {
-      console.log("no token");
-    } 
-    // 获取code并换取token
     var that = this;
     wx.login({
       success: res => {
@@ -48,6 +31,7 @@ App({
 
   globalData: {
     code: "",
+    token:"",
     havetoken: false,
     hasUserInfo: "",
     userInfo: [],

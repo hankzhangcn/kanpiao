@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orders_detail:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      order_id:options.order_id
+     })
+    //  获取相关信息
+    wx.request({
+      url: app.globalData.serverAddress +'function/wx/get_user_orders_detai.php',
+      data:{
+        token:wx.getStorageSync('token')
+      },
+      success:(res)=>{
+        console.log(res.data);
+        that.setData({
+          orders_detail: res.data
+        })
+      }
+    })
   },
 
   /**

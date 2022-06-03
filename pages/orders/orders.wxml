@@ -1,26 +1,28 @@
-<!--pages/orders/orders.wxml-->
-<text>pages/orders/orders.wxml</text>
-<import src='../../../templates/nothing/nothing.wxml' />
 <view class='container order-list-page'>
-  <view wx:for='{{orderList}}' wx:key='{{item}}' class='order-item'>
-    <navigator class='order-title line-ellipsis' url='../cinema-detail/cinema-detail?cinemaId={{item.cinemaId}}' hover-class='none'>
-      <view>{{item.cinemaName}}</view>
-      <view class='triangle'></view>
-    </navigator>
-    <view class='order-info' bindtap='goTo' data-order='{{item}}'>
-      <image src='{{item.movieImg}}'></image>
-      <view class='order-desc'>
-        <view class='movie-name line-ellipsis'>{{item.movieName}}</view>
-        <view class='showTime line-ellipsis'>{{item.time}}</view>
-        <view class='position line-ellipsis'>{{item.hallId}}号厅 {{item.seats}}</view>
+  <view wx:for='{{orders_list}}' wx:key='order_id' class='order-item'>
+    <navigator url="../order_detail/order_detail?order_id={{item.order_id}}">
+      <view class='order-info' bindtap='goTo' data-order='{{item}}'>
+        <image src='{{item.show_poster_vertical}}'></image>
+        <view class='order-desc'>
+          <view class='movie-name line-ellipsis'>{{item.show_name}}</view>
+          <view class='showTime line-ellipsis'>{{item.session_time}}</view>
+          <view class='position line-ellipsis'>{{item.show_place}}</view>
+        </view>
+       </view>
+      <view class='order-more'>
+        <view>价格：{{item.order_price}}元</view>
+        <view class='status'>
+          <view wx:if="{{item.order_status == 0}}" wx:key='{{item}}'>待检票</view>
+          <view wx:if="{{item.order_status == 1}}" wx:key='{{item}}'>已入场</view>
+          <view wx:if="{{item.order_status == 2}}" wx:key='{{item}}'>待付款</view>
+          <view wx:if="{{item.order_status == 3}}" wx:key='{{item}}'>退款中</view>
+          <view wx:if="{{item.order_status == 4}}" wx:key='{{item}}'>已关闭</view>
+        </view>
       </view>
-    </view>
-    <view class='order-more'>
-      <view>总价：{{item.orderPrice}}元</view>
-      <view class='status'>已完成</view>
-    </view>
+  </navigator>
+
   </view>
-  <view wx:if='{{orderList.length==0}}'>
-    <template is='nothing' data='{{message:"暂无电影订单"}}' />
+  <view wx:if='{{orders_list.length==0}}'>
+    
   </view>
 </view>

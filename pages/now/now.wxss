@@ -35,6 +35,7 @@
   width: 230rpx;
   /* display: inline-block; */
   color: #fff;
+  min-height: 150rpx;
 
 }
 .show_post{

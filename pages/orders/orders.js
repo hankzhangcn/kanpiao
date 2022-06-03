@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_id:"",
+    orders_list:[],
   },
 
   /**
@@ -14,14 +14,17 @@ Page({
    */
   onLoad(options) {
     var that = this;
-    // 获取user_id
+    // 获取详细列表
     wx.request({
-      url: app.globalData.serverAddress +'function/wx/get_user_id_by_token.php',
+      url: app.globalData.serverAddress +'function/wx/get_user_orders_list.php',
       data:{
         token:wx.getStorageSync('token')
       },
       success:(res)=>{
         console.log(res.data);
+        that.setData({
+          orders_list: res.data
+        })
       }
     })
   },
