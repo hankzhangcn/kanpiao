@@ -42,9 +42,9 @@
       <view class="menu-go">></view>
       <view class="menu-text">检票员页面</view>
     </button>
-    <button class="menu-list" open-type="contact">
+    <button class="menu-list" bindtap="orders_page">
       <image class="menu-ico" src="https://s1.ax1x.com/2022/05/29/XQIpuV.png"></image>
-      <view class="menu-text" bindtap="myOrders">我的订单</view>
+      <view class="menu-text" >我的订单</view>
       <view class="menu-go">></view>
     </button>
     <!-- <button class="menu-list" open-type="contact">

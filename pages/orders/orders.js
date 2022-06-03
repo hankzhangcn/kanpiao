@@ -1,18 +1,29 @@
 // pages/orders/orders.js
+var app= getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    user_id:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this;
+    // 获取user_id
+    wx.request({
+      url: app.globalData.serverAddress +'function/wx/get_user_id_by_token.php',
+      data:{
+        token:wx.getStorageSync('token')
+      },
+      success:(res)=>{
+        console.log(res.data);
+      }
+    })
   },
 
   /**

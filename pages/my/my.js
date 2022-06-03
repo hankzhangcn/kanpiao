@@ -182,6 +182,11 @@ onCloseLogout() {
       url: '/pages/checker_page/checker_page'
     })
   },
+  orders_page(){
+    wx.navigateTo({
+      url: '/pages/orders/orders'
+    })
+  },
   about_page(){
     wx.navigateTo({
       url: '/pages/about/about'
