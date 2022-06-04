@@ -2,7 +2,7 @@
 
 
 <view class="container">
-  <view class="area">
+  <!-- <view class="area">
     <van-search
       value="{{ value }}"
       placeholder="搜索「演出」「话剧」"
@@ -10,7 +10,7 @@
       background="rgba(0,0,0,0)"
       clear-trigger="focus"
     />
-  </view>
+  </view> -->
   <view class="area">
    <text class="bigTitle">{{motto}}</text>
   </view>

@@ -8,7 +8,7 @@
       <view class='showTime line-ellipsis'>付款时间：{{order_detail[0].order_pay_time}}</view>
       <view class='position line-ellipsis'>{{order_detail[0].show_place}}</view>
     </view>
-    <view class='code-container' wx:if="{{order_detail[0].order_status == 0}}">
+    <view class='code-container'>
       <view class='code-box'>
         <view>流水号：{{order_detail[0].order_id}}</view>
         <view>将二维码出示给检票员</view>
