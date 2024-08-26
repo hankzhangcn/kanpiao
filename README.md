@@ -40,7 +40,7 @@
 1. 克隆此仓库到本地：
 
    ```bash
-   git clone https://github.com/yourusername/kanpiao-miniprogram.git
+   git clone git@github.com:hankzhangcn/kanpiao.git
    ```
 
 1. 打开微信开发者工具并导入该项目。
