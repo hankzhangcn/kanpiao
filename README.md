@@ -52,7 +52,30 @@
 ## 用户角色
 
 - **用户**：使用微信登录后，可浏览演出、选择场次并完成购票。门票将生成二维码，凭此二维码可入场。
-- **管理员**：通过小程序扫描二维码核销票务订单。
+- **检票员**：通过小程序扫描二维码核销票务订单。
+
+## 截图
+
+| <img src=".\asset\shows.png" alt="shows" style="zoom: 25%;" /> | <img src=".\asset\check.png" alt="check" style="zoom:33%;" /> | <img src=".\asset\my.png" alt="my" style="zoom: 38%;" /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------------------------- |
+
+<img src=".\asset\login.png" alt="login" style="zoom:33%;" />
+
+
+
+
+
+<img src=".\asset\detail.jpg" alt="detail" style="zoom:33%;" />
+
+<img src=".\asset\detail2.png" alt="detail2" style="zoom:33%;" />
+
+<img src=".\asset\choosestate.jpg" alt="choosestate" style="zoom:33%;" />
+
+<img src=".\asset\createorder.jpg" alt="createorder" style="zoom:33%;" />
+
+<img src=".\asset\orderdetail.jpg" alt="orderdetail" style="zoom:33%;" />
+
+
 
 ## 参与贡献
 
