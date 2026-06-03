@@ -1,0 +1,54 @@
+services:
+  # ========================
+  # MySQL 数据库服务
+  # ========================
+  mysql:
+    image: mysql:8.0
+    container_name: kanpiao-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: kanpiao
+      MYSQL_USER: kanpiao
+      MYSQL_PASSWORD: kanpiao
+    ports:
+      - "3307:3306"                          # 映射到本地 3307，避免与本地 MySQL 冲突
+    volumes:
+      - mysql_data:/var/lib/mysql            # 数据持久化
+      - ./kanpiao-web-master/kanpiao.sql:/docker-entrypoint-initdb.d/01-init.sql:ro  # 自动初始化数据库
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ========================
+  # PHP + Apache Web 服务
+  # ========================
+  app:
+    build:
+      context: ./kanpiao-web-master
+      dockerfile: Dockerfile
+    container_name: kanpiao-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"                            # 映射到本地 8080 端口
+    volumes:
+      - ./kanpiao-web-master:/var/www/html   # 代码热挂载，修改即时生效
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: kanpiao
+      DB_USER: kanpiao
+      DB_PASSWORD: kanpiao
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+    driver: local

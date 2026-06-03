@@ -1,0 +1,5 @@
+/* pages/checker_page/checker_page.wxss */
+
+.cross_line{
+  height: 30rpx;
+}

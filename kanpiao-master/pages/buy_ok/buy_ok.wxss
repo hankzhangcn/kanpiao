@@ -1,0 +1,17 @@
+/* pages/buy_ok/buy_ok.wxss */
+.btn_box{
+  margin-left: 120rpx;
+  position: fixed;
+  left: 0;
+  bottom: 100rpx;
+  width: 100%;
+}
+.success{
+  text-align: center;
+  /* margin-left: 120rpx; */
+  position: fixed;
+  left: -10rpx;
+  top: 500rpx;
+  width: 100%;
+  font-size: xx-large;
+}

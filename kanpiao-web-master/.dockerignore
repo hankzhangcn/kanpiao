@@ -1,0 +1,12 @@
+.git
+.gitignore
+README.md
+Readme.md
+Sql_expl.md
+.dockerignore
+Dockerfile
+docker-compose.yml
+asset/login.png
+**/._*
+**/.DS_Store
+**/Thumbs.db
